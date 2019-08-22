@@ -1,0 +1,115 @@
+{% extends "navbar.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='dashboard.css')}}">
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <ul class="nav nav-sidebar">
+          <li {% if tab and tab=='user_info' %} class='active' {% endif %}><a data-toggle="pill" href="#user_info">個人資訊</a></li>
+          <li {% if tab and tab=='mod_manage' %} class='active' {% endif %}><a data-toggle="pill" href="#mod_manage">模型管理</a></li>
+          <li {% if tab and tab=='var_manage' %} class='active' {% endif %}><a data-toggle="pill" href="#var_manage">資料集管理</a></li>
+        </ul>
+      </div>
+
+      <div class="tab-content">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade {% if tab and tab=='user_info' %} active in {% endif %}" id="user_info">
+            <h2 class="sub-header">個人資訊</h2>
+        </div>
+        
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade {% if tab and tab=='mod_manage' %} active in {% endif %}" id="mod_manage">
+          <h2 class="sub-header">模型管理</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>模型名稱</th>
+                  <th>訓練集資料</th>
+                  <th>測試集資料</th>
+                  <th>建模歷程</th>
+                  <th>刪除</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Model_1</td>
+                  <td><a href="">data_1_train</a></td>
+                  <td><a href="">data_1_test</a></td>
+                  <td><a href="">查看</a></td>
+                  <td><a href="">刪除</a></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Model_2</td>
+                  <td><a href="">data_2_train</a></td>
+                  <td><a href="">data_2_test</a></td>
+                  <td><a href="">查看</a></td>
+                  <td><a href="">刪除</a></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Model_3</td>
+                  <td><a href="">data_3_train</a></td>
+                  <td><a href="">data_3_test</a></td>
+                  <td><a href="">查看</a></td>
+                  <td><a href="">刪除</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade {% if tab and tab=='var_manage' %} active in {% endif %}" id="var_manage">
+            <h2 class="sub-header">資料集管理</h2>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>名稱</th>
+                    <th>型態</th>
+                    <th>Row x Column</th>
+                    <th>刪除</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td><a href="">DataSet_1</a></td>
+                    <td>Input</td>
+                    <td>1021 x 13</td>
+                    <td><a href="">刪除</a></td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td><a href="">DataSet_2</a></td>
+                    <td>Input</td>
+                    <td>2021 x 13</td>
+                    <td><a href="">刪除</a></td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td><a href="">DataSet_3</a></td>
+                    <td>Target</td>
+                    <td>3021 x 13</td>
+                    <td><a href="">刪除</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>        
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
