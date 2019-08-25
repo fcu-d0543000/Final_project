@@ -72,7 +72,7 @@ def index():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if session.get('username') is not None:
-        return redirect(url_for('dashboard',tab='user_info'))
+        return redirect(url_for('dashboard')+'?view=user_info')
 
     form = LoginForm()
 
@@ -107,11 +107,12 @@ def signup():
 
     return render_template('signup.html', form=form)
 
-@app.route('/dashboard/<tab>')
+@app.route('/dashboard')
 @login_required
-def dashboard(tab):
-    print(tab)
-    return render_template('dashboard.html', name=session.get('username'), tab=tab)
+def dashboard():
+    view = request.args.get('view')
+    user = User.query.filter_by(username=session.get('username')).first()
+    return render_template('dashboard.html', name=session.get('username'), email=user.email, view=request.args.get('view'))
 
 @app.route('/logout')
 @login_required
