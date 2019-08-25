@@ -9,157 +9,157 @@ Demo App
 <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css"> 
-  h4 { 
-    margin-top:20px; 
-    margin-bottom:20px; 
-  }
-  /*basic settings */
+    h4 { 
+        margin-top:20px; 
+        margin-bottom:20px; 
+    }
+    /*basic settings */
 </style>
 {% endblock %}
 
 {% block content %}
-    <div class="container">
-      <div class="col-sm-10 col-md-10">
-      <div>
-        <ul class="nav nav-tabs" style="margin-top:50px;">
-          <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
-          <li><a data-toggle="tab" href="#Step2">Step2</a></li>
-          <li><a data-toggle="tab" href="#Step3">Step3</a></li>
-          <li><a data-toggle="tab" href="#Step4">Step4</a></li>
-        </ul>
+        <div class="container">
+            <div class="col-sm-10 col-md-10">
+            <div>
+                <ul class="nav nav-tabs" style="margin-top:50px;">
+                    <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
+                    <li><a data-toggle="tab" href="#Step2">Step2</a></li>
+                    <li><a data-toggle="tab" href="#Step3">Step3</a></li>
+                    <li><a data-toggle="tab" href="#Step4">Step4</a></li>
+                </ul>
 
-        <div class="tab-content">
-          <div id="Step1" class="tab-pane fade in active">
-            <h4>請選擇一個類神經網路</h4>
+                <div class="tab-content">
+                    <div id="Step1" class="tab-pane fade in active">
+                        <h4>請選擇一個類神經網路</h4>
 
-            <form>
-              <div class="radio">
-                <label><input type="radio" name="optradio" value='1'>基礎類神經網路(ANN)</label>
-                <br><br>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
-                <br>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="optradio" value='2'>模糊類神經網路(FNN)</label>
-                <br><br>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
-                <br>
-              </div>
-              <div class="radio">
-                <label><input type="radio" name="optradio" value='3'>Heap概念的補償式基礎類神經網路</label>
-                <br><br>
-                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
-                <br>
-              </div>
-            </form>
+                        <form>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" value='1'>基礎類神經網路(ANN)</label>
+                                <br><br>
+                                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
+                                <br>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" value='2'>模糊類神經網路(FNN)</label>
+                                <br><br>
+                                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
+                                <br>
+                            </div>
+                            <div class="radio">
+                                <label><input type="radio" name="optradio" value='3'>Heap概念的補償式基礎類神經網路</label>
+                                <br><br>
+                                <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
+                                <br>
+                            </div>
+                        </form>
 
-            <div class="text-right col-sm-12" style="margin-top:20;">
-              <button type="button" class="btn btn-info text-right">下一步</button>
-            </div>
-          </div> <!-- Step1 -->
+                        <div class="text-right col-sm-12" style="margin-top:20;">
+                            <button type="button" class="btn btn-info text-right">下一步</button>
+                        </div>
+                    </div> <!-- Step1 -->
 
-          <div id="Step2" class="tab-pane fade">
-            <h4 class="col-sm-6">選取資料集</h4>
-            <h4 class="col-sm-5 text-right">資料集資訊</h4>
-            <form>
-              <div class="col-sm-12 form-group form-group-sm">
-                  <label class="col-sm-2">Input:</label>
-                  <div class="col-sm-3">
-                      <select class="form-control form-control-sm">
-                          <option>input1</option>
-                      </select>
-                  </div>
-                  <div class="desc col-sm-5 text-right">
-                    <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                  </div>
-              </div>
-              <div class="col-sm-12 form-group form-group-sm">
-                  <label class="col-sm-2 col-form-label col-form-label-sm">Target:</label>
-                  <div class="col-sm-3">
-                      <select class="form-control form-control-sm">
-                          <option>target1</option>
-                      </select>
-                  </div>
-                  <div class="desc col-sm-5 text-right">
-                    <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                  </div>
-              </div>
-            </form>
+                    <div id="Step2" class="tab-pane fade">
+                        <h4 class="col-sm-6">選取資料集</h4>
+                        <h4 class="col-sm-5 text-right">資料集資訊</h4>
+                        <form>
+                            <div class="col-sm-12 form-group form-group-sm">
+                                    <label class="col-sm-2">Input:</label>
+                                    <div class="col-sm-3">
+                                            <select class="form-control form-control-sm">
+                                                    <option>input1</option>
+                                            </select>
+                                    </div>
+                                    <div class="desc col-sm-5 text-right">
+                                        <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+                            </div>
+                            <div class="col-sm-12 form-group form-group-sm">
+                                    <label class="col-sm-2 col-form-label col-form-label-sm">Target:</label>
+                                    <div class="col-sm-3">
+                                            <select class="form-control form-control-sm">
+                                                    <option>target1</option>
+                                            </select>
+                                    </div>
+                                    <div class="desc col-sm-5 text-right">
+                                        <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+                            </div>
+                        </form>
 
-            <div class="text-right col-sm-12" style="margin-top:20;">
-              <button type="button" class="btn btn-info text-right">上一步</button>
-              <button type="button" class="btn btn-info text-right">下一步</button>
-            </div>
-            <br><br><br><br>
-          </div> <!-- Step2 -->
+                        <div class="text-right col-sm-12" style="margin-top:20;">
+                            <button type="button" class="btn btn-info text-right">上一步</button>
+                            <button type="button" class="btn btn-info text-right">下一步</button>
+                        </div>
+                        <br><br><br><br>
+                    </div> <!-- Step2 -->
 
-          <div id="Step3" class="tab-pane fade">
-              <h4 class="col-sm-6">設定訓練集、測試集比例</h4>
+                    <div id="Step3" class="tab-pane fade">
+                            <h4 class="col-sm-6">設定訓練集、測試集比例</h4>
 
-              <form>
-                <div class="col-sm-12 form-group form-group-sm">
-                    <label class="col-sm-2">Input Set:</label>
-                    <div class="col-sm-3">
-                        <select class="form-control form-control-sm">
-                            <option>70%</option>
-                        </select>
-                    </div>
-                    <div class="desc col-sm-5 text-right">
-                      <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                    </div>
+                            <form>
+                                <div class="col-sm-12 form-group form-group-sm">
+                                        <label class="col-sm-2">Input Set:</label>
+                                        <div class="col-sm-3">
+                                                <select class="form-control form-control-sm">
+                                                        <option>70%</option>
+                                                </select>
+                                        </div>
+                                        <div class="desc col-sm-5 text-right">
+                                            <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                        </div>
+                                </div>
+                                <div class="col-sm-12 form-group form-group-sm">
+                                        <label class="col-sm-2 col-form-label col-form-label-sm">Target Set:</label>
+                                        <div class="col-sm-3">
+                                                <select class="form-control form-control-sm">
+                                                        <option>30%</option>
+                                                </select>
+                                        </div>
+                                        <div class="desc col-sm-5 text-right">
+                                            <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <br>
+                                        </div>
+                                </div>
+                            </form>
+    
+                            <div class="text-right col-sm-12" style="margin-top:20;">
+                                <button type="button" class="btn btn-info text-right">上一步</button>
+                                <button type="button" class="btn btn-info text-right">下一步</button>
+                            </div>
+                    </div> <!-- Step4 -->
+
+                    <div id="Step4" class="tab-pane fade">
+                            <div class="col-sm-12" style="margin-top:20;">
+                                <br>
+                                <button type="button" class="btn btn-info">Retrain</button>
+                            </div>
+                            <h4 class="col-sm-6">Training Infomation</h4>
+                            <h4 class="col-sm-5 text-right">Plots</h4>
+                            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+                            <div class="text-right col-sm-12" style="margin-top:20;">
+                                <button type="button" class="btn btn-info text-right">上一步</button>
+                                <button type="button" class="btn btn-info text-right">儲存模型</button>
+                            </div>
+                    </div> <!-- Step4 -->                
+                    
                 </div>
-                <div class="col-sm-12 form-group form-group-sm">
-                    <label class="col-sm-2 col-form-label col-form-label-sm">Target Set:</label>
-                    <div class="col-sm-3">
-                        <select class="form-control form-control-sm">
-                            <option>30%</option>
-                        </select>
-                    </div>
-                    <div class="desc col-sm-5 text-right">
-                      <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Desc</p>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                    </div>
-                </div>
-              </form>
-  
-              <div class="text-right col-sm-12" style="margin-top:20;">
-                <button type="button" class="btn btn-info text-right">上一步</button>
-                <button type="button" class="btn btn-info text-right">下一步</button>
-              </div>
-          </div> <!-- Step4 -->
-
-          <div id="Step4" class="tab-pane fade">
-              <div class="col-sm-12" style="margin-top:20;">
-                <br>
-                <button type="button" class="btn btn-info">Retrain</button>
-              </div>
-              <h4 class="col-sm-6">Training Infomation</h4>
-              <h4 class="col-sm-5 text-right">Plots</h4>
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
-              <div class="text-right col-sm-12" style="margin-top:20;">
-                <button type="button" class="btn btn-info text-right">上一步</button>
-                <button type="button" class="btn btn-info text-right">儲存模型</button>
-              </div>
-          </div> <!-- Step4 -->        
-          
-        </div>
-      </div>
-      </div>
-    </div><!-- /.container -->
+            </div>
+            </div>
+        </div><!-- /.container -->
 {% endblock %}

@@ -11,16 +11,16 @@ Login
 {% endblock %}
 
 {% block content %}
-    <div class="container" style="margin-top:50px; ">
+        <div class="container" style="margin-top:50px; ">
 
-      <form class="form-signin" method="POST" action="{{ url_for('login') }}">
-        <h2 class="form-signin-heading" style="margin-bottom:20px;">登入</h2>
-        {{ form.hidden_tag() }}
-        {{ wtf.form_field(form.username) }}
-        {{ wtf.form_field(form.password) }}
-        <!--{{ wtf.form_field(form.remember) }}-->
-        <button class="btn btn-md btn-info" type="submit">登入</button>
-      </form>
+            <form class="form-signin" method="POST" action="{{ url_for('login') }}">
+                <h2 class="form-signin-heading" style="margin-bottom:20px;">登入</h2>
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.username) }}
+                {{ wtf.form_field(form.password) }}
+                <!--{{ wtf.form_field(form.remember) }}-->
+                <button class="btn btn-md btn-info" type="submit">登入</button>
+            </form>
 
-    </div> 
+        </div> 
 {% endblock %}
