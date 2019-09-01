@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">模型介紹</a></li>
 		        <li><a href="{{ url_for('build') }}">模型建立</a></li>
-                <li><a href="#">模型預測</a></li>
+                <li><a href="{{ url_for('predict') }}">模型預測</a></li>
             </ul>
             {% if name %}
             <ul class="nav navbar-nav navbar-right">

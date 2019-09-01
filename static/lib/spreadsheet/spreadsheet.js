@@ -3216,7 +3216,7 @@ var DataCollection = /** @class */ (function () {
             }
         }
         else {
-            helpers_1.dhxWarning("item not found");
+            //helpers_1.dhxWarning("item not found");
         }
     };
     DataCollection.prototype.getIndex = function (id) {

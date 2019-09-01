@@ -7,14 +7,11 @@ Demo App
 {% block js %}
 {{super()}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.js')}}"></script>
 {% endblock %}
 
 {% block styles %}
 {{super()}}
     <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
-    <link rel="stylesheet" href="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.css')}}">
-
     <style type="text/css"> 
         h4 { 
             margin-top:20px; 
@@ -177,7 +174,6 @@ Demo App
         </div>
         </div>
     </div><!-- /.container -->
-    <script src="{{url_for('.static', filename='js/fileupload.js')}}"></script>
 
     <script>
         $( document ).ready(function() {
