@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>上傳新資料集</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.js')}}"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.css')}}">    
+</head>
+<body>
+    <div class="container">
+        <div class="col-sm-12" style="margin-top:50px;">
+            <div class="form-group col-sm-6">
+                <div class="input-group input-file" name="Fichier1">
+                    <input type="text" class="form-control" placeholder='從本地選擇資料集...' />		
+                    <span class="input-group-btn">
+                        <button class="btn btn-default btn-choose" type="button">Choose</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <section class="dhx_sample-container" >
+                <div class="dhx_sample-container__widget" style="height: 300px" id="spreadsheet"></div>
+            </section>
+        </div>
+        <div class="col-sm-12">
+            <span><input type="checkbox" name="ckbox" value='ignore'>忽略首行&nbsp;&nbsp;</span>
+            <span><input type="checkbox" name="ckbox" value='lstcol'>尾列作為Target </span> 
+        </div>
+        <div class="text-right col-sm-12" style="margin-top:20;">
+            <button type="button" class="btn btn-info text-right">儲存</button>
+        </div>
+    </div> 
+    
+    <script src="{{url_for('.static', filename='js/fileupload.js')}}"></script>
+    <script>
+        var maxIdx = 10;
+        var reader = new FileReader();
+        var spreadsheet = new dhx.Spreadsheet("spreadsheet", {
+            colsCount: 24,
+            rowsCount: 10,
+            readonly: true,
+            autoFormat:false,
+            importModulePath:"https://cdn.dhtmlx.com/libs/excel2json/1.0/worker.js"
+        });
+        
+        $( document ).ready(function() {
+            document.getElementById('fileupload').addEventListener('change', function (e) {
+                var files = e.target.files;
+                var fileExt = files[0].name;
+                fileExt = fileExt.substring(fileExt.lastIndexOf('.')).toLowerCase();
+
+                if(fileExt != undefined && '.csv' == fileExt.toLowerCase()) {
+                    reader.readAsText(files[0]);
+                }   
+            }, false);
+
+            reader.onload = function(e) {
+                spreadsheet.parse(reader.result, 'csv');
+            };
+        });
+    </script>
+</body>

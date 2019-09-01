@@ -107,6 +107,11 @@ def signup():
 
     return render_template('signup.html', form=form)
 
+@app.route('/dataset')
+@login_required
+def dataset():
+    return render_template('dataset.html')
+
 @app.route('/dashboard')
 @login_required
 def dashboard():
