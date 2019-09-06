@@ -9,12 +9,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     {% endblock %}
     {% block styles %}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="{{url_for('.static', filename='bg.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     {% endblock %}
 
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -52,6 +53,9 @@
         </div>
     </div>
 </nav>
+<div class="bg-overlay-primary">
+    <img src="../static/img/9.jpg" class="img-fluid img-cover" alt="Robust UI Kit">
+</div>
 {% block content %}
 {% endblock %}
 </body>

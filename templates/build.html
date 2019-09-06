@@ -22,9 +22,9 @@ Demo App
 
 {% block content %}
     <div class="container">
-        <div class="col-sm-10 col-md-10">
+        <div class="col-sm-10 col-md-10 card">
         <div>
-            <ul class="nav nav-tabs" style="margin-top:50px;">
+            <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
                 <li><a data-toggle="tab" href="#Step2">Step2</a></li>
                 <li><a data-toggle="tab" href="#Step3">Step3</a></li>
@@ -57,7 +57,7 @@ Demo App
                     </form>
 
                     <div class="text-right col-sm-12" style="margin-top:20;">
-                        <button type="button" class="btn btn-info text-right">下一步</button>
+                        <button type="button" class="btn btn-info text-right btnNext">下一步</button>
                     </div>
                 </div> <!-- Step1 -->
 
@@ -104,8 +104,8 @@ Demo App
                     </form>
 
                     <div class="text-right col-sm-12" style="margin-top:20;">
-                        <button type="button" class="btn btn-info">上一步</button>
-                        <button type="button" class="btn btn-info">下一步</button>
+                        <button type="button" class="btn btn-info btnPrevious">上一步</button>
+                        <button type="button" class="btn btn-info btnNext">下一步</button>
                     </div>
                     <br><br><br><br>
                 </div> <!-- Step2 -->
@@ -149,8 +149,8 @@ Demo App
                     </form>
 
                     <div class="text-right col-sm-12" style="margin-top:20;">
-                        <button type="button" class="btn btn-info text-right">上一步</button>
-                        <button type="button" class="btn btn-info text-right">下一步</button>
+                        <button type="button" class="btn btn-info text-right btnPrevious">上一步</button>
+                        <button type="button" class="btn btn-info text-right btnNext">下一步</button>
                     </div>
                 </div> <!-- Step3 -->
 
@@ -165,7 +165,7 @@ Demo App
                     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
                     <div class="text-right col-sm-12" style="margin-top:20;">
-                        <button type="button" class="btn btn-info text-right">上一步</button>
+                        <button type="button" class="btn btn-info text-right btnPrevious">上一步</button>
                         <button type="button" class="btn btn-info text-right">儲存模型</button>
                     </div>
                 </div> <!-- Step4 -->                
@@ -186,5 +186,14 @@ Demo App
             
             popupWindow = window.open(url,winName,settings)
         }  
+    </script>
+
+    <script>
+        $('.btnNext').click(function(){
+            $('.nav-tabs > .active').next('li').find('a').trigger('click');
+        });
+        $('.btnPrevious').click(function(){
+            $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+        });
     </script>
 {% endblock %}
