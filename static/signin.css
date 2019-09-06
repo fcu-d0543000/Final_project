@@ -7,33 +7,86 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: 0 auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+  opacity: 0.85;
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
+  align-items: center;
 }
 .form-signin .checkbox {
   font-weight: normal;
 }
-.form-signin .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+.form-group {
+    width: 100%;
+    margin: 0;
+    padding 0;
+    top: 0;
+    display: flex;
+    align-items: center;
 }
-.form-signin .form-control:focus {
-  z-index: 2;
+
+.from-icon {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 0;
+    border: 1px solid #cad1d7;
+    color: #8898aa;
+    background-color: #fff;
+    border-radius: .375rem;
+    align-items: center;
+    overflow: hidden;
 }
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+
+.from-icon i {
+    font-size: 20px;
+    padding: 10px;
 }
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+
+.from-icon input {
+    outline: none;
+    width: 100% !important;
+    padding: 0;
+    border: none;
+    opacity: 0.5;
+    align-items: center;
+    box-shadow: none;
+}
+
+.from-icon input:hover{
+    opacity: 1;
+
+}
+
+
+.form-signin button {
+    border-radius: 5px;
+    border: 1px solid #009345;
+    background-color: #009345;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 40px;
+    letter-spacing: .025em;
+    text-transform: uppercase;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: transform .15s ease;
+    border: none;
+    outline: none;
+}
+.form-signin button:hover{
+    background-color: #009345;
+    color: #fff;
+    transform: translatey(-1px);
+    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+    opacity: 1;
 }

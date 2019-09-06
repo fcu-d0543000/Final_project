@@ -29,32 +29,32 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 class LoginForm(FlaskForm):
-    username = StringField('使用者名稱', validators=[
+    username = StringField('', validators=[
         validators.InputRequired(), 
-        validators.Length(min=4, max=15)])
-    password = PasswordField('密碼', validators=[
+        validators.Length(min=4, max=15)], render_kw={"placeholder": "使用者名稱"})
+    password = PasswordField('', validators=[
         validators.InputRequired(), 
-        validators.Length(min=4, max=80)])
+        validators.Length(min=4, max=80)], render_kw={"placeholder": "密碼"})
     remember = BooleanField('記住我')
 
 class RegisterForm(FlaskForm):
-    username = StringField('使用者名稱', validators=[
+    username = StringField('', validators=[
         validators.DataRequired(),
         validators.Length(4, 15)
-    ])
-    email = EmailField('電子郵件', validators=[
+    ], render_kw={"placeholder": "使用者名稱"})
+    email = EmailField('', validators=[
         validators.DataRequired(),
         validators.Length(1, 50),
         validators.Email()
-    ])
-    password = PasswordField('密碼', validators=[
+    ], render_kw={"placeholder": "電子郵件"})
+    password = PasswordField('', validators=[
         validators.DataRequired(),
         validators.Length(4, 80),
         validators.EqualTo('password2', message='PASSWORD NEED MATCH')
-    ])
-    password2 = PasswordField('確認密碼', validators=[
+    ], render_kw={"placeholder": "密碼"})
+    password2 = PasswordField('', validators=[
         validators.DataRequired()
-    ])
+    ], render_kw={"placeholder": "確認密碼"})
     submit = SubmitField('Register New Account')
 
     def validate_email(self, field):
