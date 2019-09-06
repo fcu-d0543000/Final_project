@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
     <link rel="stylesheet" href="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.css')}}">
     <link rel="stylesheet" href="{{url_for('.static', filename='lib/jquery.steps/jquery.steps.css')}}">
-
     <style type="text/css"> 
         h4 { 
             margin-top:20px; 
@@ -27,9 +26,10 @@
 
 {% block content %}
      <div class="container">
+        <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-10 col-md-10 card">
         <div>
-            <ul class="nav nav-tabs" style="margin-top:50px;">
+            <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
                 <li><a data-toggle="tab" href="#Step2">Step2</a></li>
                 <li><a data-toggle="tab" href="#Step3">Step3</a></li>
