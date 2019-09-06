@@ -13809,6 +13809,7 @@ var XlsxDriver = /** @class */ (function () {
         var cells = [];
         var formats = [];
         var styles = {};
+        var limit = (typeof maxIdx !== 'undefined'? maxIdx: dataArr.length);
         data.styles.forEach(function (style, i) {
             var allowedProps = [
                 "background",
@@ -13834,7 +13835,7 @@ var XlsxDriver = /** @class */ (function () {
                 c.width = col.width;
             }
         });
-        data.data[0].cells.forEach(function (row, rowInd) {
+        data.data[0].cells.slice(0, limit).forEach(function (row, rowInd) {
             row.forEach(function (col, colInd) {
                 var cell = {
                     cell: main_1.getCellNameByIndex(rowInd, colInd + 1),
