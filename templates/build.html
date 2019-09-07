@@ -12,6 +12,7 @@ Demo App
 {% block styles %}
 {{super()}}
     <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='lib/stepProgress/step-progress.min.css')}}">
     <style type="text/css"> 
         h4 { 
             margin-top:20px; 
@@ -24,19 +25,50 @@ Demo App
     <div class="container">
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-10 col-md-10 card">
-        <div>
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
-                <li><a data-toggle="tab" href="#Step2">Step2</a></li>
-                <li><a data-toggle="tab" href="#Step3">Step3</a></li>
-                <li><a data-toggle="tab" href="#Step4">Step4</a></li>
-            </ul>
+            <div class="steps">
+                <ul class="steps-container" style='padding-inline-start: 0px;'>
+                    <li style="width:25%;" class="activated">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step1</div>
+                            <div class="step-description">選擇類神經網路</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step1"></a>
+                    </li>
+                    <li style="width:25%;">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step2</div>
+                            <div class="step-description">選取資料集</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step2"></a>
+                    </li>
+                    <li style="width:25%;">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step3</div>
+                            <div class="step-description">設定參數</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step3"></a>
+                    </li>
+                    <li style="width:25%;">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step4</div>
+                            <div class="step-description">進行訓練</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step4"></a>
+                    </li>
+                </ul>
+                <div class="step-bar" style="width: 25%;"></div>
+            </div>
 
             <div class="tab-content">
                 <div id="Step1" class="tab-pane fade in active">
-                    <h4>請選擇一個類神經網路</h4>
+                    <h4 class="col-sm-6">請選擇一個類神經網路</h4>
 
                     <form>
+                        <div class="col-sm-12 form-group form-group-sm">
                         <div class="radio">
                             <label><input type="radio" name="optradio" value='1'>基礎類神經網路(ANN)</label>
                             <br><br>
@@ -54,6 +86,7 @@ Demo App
                             <br><br>
                             <p>&nbsp&nbsp&nbsp&nbsp&nbspSome Introduction</p>
                             <br>
+                        </div>
                         </div>
                     </form>
 
@@ -170,9 +203,7 @@ Demo App
                         <button type="button" class="btn btn-info text-right">儲存模型</button>
                     </div>
                 </div> <!-- Step4 -->                
-                
             </div>
-        </div>
         </div>
     </div><!-- /.container -->
 
@@ -190,11 +221,27 @@ Demo App
     </script>
 
     <script>
-        $('.btnNext').click(function(){
-            $('.nav-tabs > .active').next('li').find('a').trigger('click');
+        var stepBar = $('.step-bar');
+        var re = /\d+/;
+
+        $('.btnNext').click(function() {
+            var selector = $('.steps-container > .activated:last').next('li');
+            selector.addClass('activated');
+            selector.find('a').trigger('click');
+            
+            var selectorWidth = parseInt(selector.get(0).style.width.match(re));
+            var stepBarWidth = parseInt(stepBar.get(0).style.width.match(re));
+            stepBar.get(0).style.width = stepBarWidth + selectorWidth + '%';
         });
+
         $('.btnPrevious').click(function(){
-            $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+            var selector = $('.steps-container > .activated:last');
+            selector.removeClass('activated');
+            selector.prev('li').find('a').trigger('click');
+
+            var selectorWidth = parseInt(selector.get(0).style.width.match(re));
+            var stepBarWidth = parseInt(stepBar.get(0).style.width.match(re));
+            stepBar.get(0).style.width = stepBarWidth - selectorWidth + '%';
         });
     </script>
 {% endblock %}

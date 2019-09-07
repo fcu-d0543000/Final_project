@@ -8,14 +8,13 @@
 {{super()}}
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.js')}}"></script>
-<script src="{{url_for('.static', filename='js/jquery.steps/jquery.steps.js')}}"></script>
 {% endblock %}
 
 {% block styles %}
 {{super()}}
     <link rel="stylesheet" href="{{url_for('.static', filename='starter-template.css')}}">
     <link rel="stylesheet" href="{{url_for('.static', filename='lib/spreadsheet/spreadsheet.css')}}">
-    <link rel="stylesheet" href="{{url_for('.static', filename='lib/jquery.steps/jquery.steps.css')}}">
+    <link rel="stylesheet" href="{{url_for('.static', filename='lib/stepProgress/step-progress.min.css')}}">
     <style type="text/css"> 
         h4 { 
             margin-top:20px; 
@@ -28,12 +27,35 @@
      <div class="container">
         <div class="col-sm-1 col-md-1"></div>
         <div class="col-sm-10 col-md-10 card">
-        <div>
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#Step1">Step1</a></li>
-                <li><a data-toggle="tab" href="#Step2">Step2</a></li>
-                <li><a data-toggle="tab" href="#Step3">Step3</a></li>
-            </ul>
+            <div class="steps">
+                <ul class="steps-container" style='padding-inline-start: 0px;'>
+                    <li style="width:33%;" class="activated">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step1</div>
+                            <div class="step-description">選擇模型</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step1"></a>
+                    </li>
+                    <li style="width:34%;">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step2</div>
+                            <div class="step-description">設定輸入值</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step2"></a>
+                    </li>
+                    <li style="width:33%;">
+                        <div class="step">
+                            <div class="step-image"><span></span></div>
+                            <div class="step-current">Step3</div>
+                            <div class="step-description">進行預測</div>
+                        </div>
+                        <a data-toggle="tab" href="#Step3"></a>
+                    </li>
+                </ul>
+                <div class="step-bar" style="width: 33%;"></div>
+            </div>
 
             <div class="tab-content">
                 <div id="Step1" class="tab-pane fade in active">
@@ -140,11 +162,27 @@
         });
     </script>
     <script>
-    $('.btnNext').click(function(){
-        $('.nav-tabs > .active').next('li').find('a').trigger('click');
-    });
-    $('.btnPrevious').click(function(){
-        $('.nav-tabs > .active').prev('li').find('a').trigger('click');
-    });
+        var stepBar = $('.step-bar');
+        var re = /\d+/;
+
+        $('.btnNext').click(function() {
+            var selector = $('.steps-container > .activated:last').next('li');
+            selector.addClass('activated');
+            selector.find('a').trigger('click');
+            
+            var selectorWidth = parseInt(selector.get(0).style.width.match(re));
+            var stepBarWidth = parseInt(stepBar.get(0).style.width.match(re));
+            stepBar.get(0).style.width = stepBarWidth + selectorWidth + '%';
+        });
+
+        $('.btnPrevious').click(function(){
+            var selector = $('.steps-container > .activated:last');
+            selector.removeClass('activated');
+            selector.prev('li').find('a').trigger('click');
+
+            var selectorWidth = parseInt(selector.get(0).style.width.match(re));
+            var stepBarWidth = parseInt(stepBar.get(0).style.width.match(re));
+            stepBar.get(0).style.width = stepBarWidth - selectorWidth + '%';
+        });
     </script>
 {% endblock %}
