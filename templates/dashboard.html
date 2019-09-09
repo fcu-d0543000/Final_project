@@ -5,8 +5,7 @@ Dashboard
 {% endblock %}
 
 {% block js %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+{{super()}}
 {% endblock %}
 
 {% block styles %}
@@ -17,7 +16,7 @@ Dashboard
 {% block content %}
     <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
         <main class="page-content pt-2">
-            <div class="container-fluid p-5">
+            <div class="container p-5">
                 <div class="row">
                     <div class="form-group col-md-12 userinformation card hidden">
                         <h2 class="sub-header">個人資訊</h2>

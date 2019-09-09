@@ -34,7 +34,7 @@
             {% if name %}
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('dashboard', tab='') }}"> {{ name }}
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="{{ url_for('dashboard') }}"> {{ name }}
                     <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ url_for('dashboard')}}?view=user_info">個人資訊</a></li>
