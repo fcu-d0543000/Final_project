@@ -1,7 +1,12 @@
-{% extends "navbar.html" %}
+{% extends "loginnavbar.html" %}
 
 {% block title %}
 Dashboard
+{% endblock %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 {% endblock %}
 
 {% block styles %}
@@ -10,78 +15,70 @@ Dashboard
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li class="user_info"><a data-toggle="pill" href="#user_info">個人資訊</a></li>
-                    <li class="mod_manage"><a data-toggle="pill" href="#mod_manage">模型管理</a></li>
-                    <li class="var_manage"><a data-toggle="pill" href="#var_manage">資料集管理</a></li>
-                </ul>
-            </div>
+    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+        <main class="page-content pt-2">
+            <div class="container-fluid p-5">
+                <div class="row">
+                    <div class="form-group col-md-12 userinformation hidden">
+                        <h2 class="sub-header">個人資訊</h2>
+                        <div class='col-sm-12'>
+                            <h4 class="col-sm-2" for='username'>使用者名稱</h4>
+                            <div class="col-sm-3"><input class="form-control" type="text" readonly='readonly' id="username" value="{{name}}"></div>
+                        </div>
+                        <div class='col-sm-12'>
+                            <h4 class="col-sm-2" for='username'>電子郵件</h4>
+                            <div class="col-sm-3"><input class="form-control" type="text" readonly='readonly' id="username" value="{{email}}"></div>
+                        </div>
+                        <div class='col-sm-12'>
+                            <h4 class="col-sm-2" for='username'>密碼</h4>
+                            <div class="col-sm-3"><h4><a href>設定新密碼</a></h4></div>
+                        </div>
+                    </div> <!-- 個人資訊-->
+                    <div class="form-group col-md-12 management hidden">
+                        <h2 class="sub-header">模型管理</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>模型名稱</th>
+                                        <th>訓練集資料</th>
+                                        <th>測試集資料</th>
+                                        <th>建模歷程</th>
+                                        <th>刪除</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Model_1</td>
+                                        <td><a href="">data_1_train</a></td>
+                                        <td><a href="">data_1_test</a></td>
+                                        <td><a href="">查看</a></td>
+                                        <td><a href="">刪除</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Model_2</td>
+                                        <td><a href="">data_2_train</a></td>
+                                        <td><a href="">data_2_test</a></td>
+                                        <td><a href="">查看</a></td>
+                                        <td><a href="">刪除</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Model_3</td>
+                                        <td><a href="">data_3_train</a></td>
+                                        <td><a href="">data_3_test</a></td>
+                                        <td><a href="">查看</a></td>
+                                        <td><a href="">刪除</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> <!-- 模型管理-->
 
-            <div class="tab-content">
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade user_info " id="user_info">
-                    <h2 class="sub-header">個人資訊</h2>
-                    <div class='col-sm-12'>
-                        <h4 class="col-sm-2" for='username'>使用者名稱</h4>
-                        <div class="col-sm-3"><input class="form-control" type="text" readonly='readonly' id="username" value="{{name}}"></div>
-                    </div><br><br><br>
-                    <div class='col-sm-12'>
-                        <h4 class="col-sm-2" for='username'>電子郵件</h4>
-                        <div class="col-sm-3"><input class="form-control" type="text" readonly='readonly' id="username" value="{{email}}"></div>
-                    </div><br><br><br>
-                    <div class='col-sm-12'>
-                        <h4 class="col-sm-2" for='username'>密碼</h4>
-                        <div class="col-sm-3"><h4><a href>設定新密碼</a></h4></div>
-                    </div><br><br><br>
-                </div>
-                
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade mod_manage" id="mod_manage">
-                    <h2 class="sub-header">模型管理</h2>
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>模型名稱</th>
-                                    <th>訓練集資料</th>
-                                    <th>測試集資料</th>
-                                    <th>建模歷程</th>
-                                    <th>刪除</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Model_1</td>
-                                    <td><a href="">data_1_train</a></td>
-                                    <td><a href="">data_1_test</a></td>
-                                    <td><a href="">查看</a></td>
-                                    <td><a href="">刪除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Model_2</td>
-                                    <td><a href="">data_2_train</a></td>
-                                    <td><a href="">data_2_test</a></td>
-                                    <td><a href="">查看</a></td>
-                                    <td><a href="">刪除</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Model_3</td>
-                                    <td><a href="">data_3_train</a></td>
-                                    <td><a href="">data_3_test</a></td>
-                                    <td><a href="">查看</a></td>
-                                    <td><a href="">刪除</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main tab-pane fade var_manage" id="var_manage">
+                    <div class="form-group col-md-12 dataset hidden">
                         <h2 class="sub-header">資料集管理</h2>
                         <div class="table-responsive">
                             <table class="table table-striped">
@@ -119,9 +116,10 @@ Dashboard
                                 </tbody>
                             </table>
                         </div>
-                    </div>                
-            </div>
-        </div>
+                    </div><!--資料集管理-->
+                </div> <!--row-->
+            </div> <!--container-->
+        </main>
     </div>
 
     <script type="text/javascript">

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    {% endblock %}
+    {% block styles %}
+    <link rel="stylesheet" href="{{url_for('.static', filename='admin.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{url_for('.static', filename='lib/fontawesome/css/all.css')}}">
+    <link rel="stylesheet" href="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    {% endblock %}
+
+</head>
+
+<body>
+    <div class="page-wrapper default-theme sidebar-bg bg1 toggled">
+      <div id="toggle-sidebar" onclick="closemenu()" class="show-sidebar page-wrapper-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav id="sidebar" class="sidebar-wrapper">
+        <div class="sidebar-content">
+          <!-- sidebar-brand  -->
+          <div class="sidebar-item sidebar-brand d-flex flex-nowrap">
+            <div id="close-sidebar" onclick="closemenu()">
+              <i class="fas fa-bars"></i>
+            </div>
+            <a href="#">webSide</a>
+          </div>
+          <!-- sidebar-header  -->
+          <div class="sidebar-item sidebar-header d-flex flex-nowrap">
+            <div class="user-pic">
+              <img class="img-responsive img-rounded" src="../static/img/boy.svg" alt="User picture" />
+            </div>
+            <div class="user-info">
+              <span class="user-name">
+                王
+                <strong>小明</strong>
+              </span>
+              <span class="user-role">Administrator</span>
+              <span class="user-status">
+                <i class="fa fa-circle"></i>
+                <span>Online</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- sidebar-menu  -->
+          <div class="sidebar-item sidebar-menu">
+            <ul>
+              <li class="header-menu">
+                <span>Menu</span>
+              </li>
+              <li>
+                <a href="#" onclick="userinformation()">
+                  <i class="fa fa-id-card"></i>
+                  <span class="menu-text">個人資訊</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="management()">
+                  <i class="fa fa-tachometer-alt"></i>
+                  <span class="menu-text">模型管理</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" onclick="datasets()">
+                  <i class="fa fa-folder"></i>
+                  <span class="menu-text">資料集管理</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- sidebar-menu  -->
+        </div>
+      </nav>
+      <!-- page-content
+      <main class="page-content pt-2">
+        <router-view />
+      </main>
+            page-content" -->
+    </div>
+    <script>
+      function closemenu() {
+        jQuery(function ($) {
+          $(".page-wrapper").toggleClass("toggled");
+        });
+      }
+      function userinformation() {
+        jQuery(function ($) {
+          if(! $('.dataset').is('.hidden')){
+            $('.dataset').addClass('hidden');
+          }
+          if(! $('.management').is('.hidden')){
+            $('.management').addClass('hidden');
+          }
+          $(".userinformation").toggleClass('hidden');
+        });
+      }
+      function datasets() {
+        jQuery(function ($) {
+          if(! $('.userinformation').is('.hidden')){
+            $('.userinformation').addClass('hidden');
+          }
+          if(! $('.management').is('.hidden')){
+            $('.management').addClass('hidden');
+          }
+          $(".dataset").toggleClass('hidden');
+        });
+      }
+
+      function management() {
+        jQuery(function ($) {
+          if(! $('.userinformation').is('.hidden')){
+            $('.userinformation').addClass('hidden');
+          }
+          if(! $('.dataset').is('.hidden')){
+            $('.dataset').addClass('hidden');
+          }
+          $(".management").toggleClass('hidden');
+        });
+      }
+
+    </script>
+
+{% block content %}
+{% endblock %}
+</body>
+
+
+
+</html>
