@@ -86,6 +86,9 @@
       </main>
             page-content" -->
     </div>
+    <div class="bg-overlay-primary">
+        <img src="../static/img/9.jpg" class="img-fluid img-cover" alt="bgcimg">
+    </div>
     <script>
       function closemenu() {
         jQuery(function ($) {
@@ -100,7 +103,9 @@
           if(! $('.management').is('.hidden')){
             $('.management').addClass('hidden');
           }
-          $(".userinformation").toggleClass('hidden');
+          if($('.userinformation').is('.hidden')){
+            $(".userinformation").toggleClass('hidden');
+          }
         });
       }
       function datasets() {
@@ -111,7 +116,9 @@
           if(! $('.management').is('.hidden')){
             $('.management').addClass('hidden');
           }
-          $(".dataset").toggleClass('hidden');
+          if($('.dataset').is('.hidden')){
+            $(".dataset").toggleClass('hidden');
+          }
         });
       }
 
@@ -123,7 +130,9 @@
           if(! $('.dataset').is('.hidden')){
             $('.dataset').addClass('hidden');
           }
-          $(".management").toggleClass('hidden');
+          if($('.management').is('.hidden')){
+            $(".management").toggleClass('hidden');
+          }
         });
       }
 

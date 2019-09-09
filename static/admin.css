@@ -1462,3 +1462,50 @@ body {
 .page-wrapper-btn:hover {
     color: #d8d8d8;
 }
+
+
+.bg-overlay-primary:after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    //background: rgba(232, 226, 225,.85);
+    //opacity: 0.85;
+    z-index: -1;
+}
+
+.img-cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+.img-fluid {
+    max-width: 100%;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.card {
+    padding: 15px;
+    margin: 0 auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-item: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .2), 0 10px 10px rgba(0, 0, 0, .2);
+    opacity: 0.75;
+}
